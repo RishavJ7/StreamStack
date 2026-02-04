@@ -21,7 +21,6 @@ router.route("/register").post(
     registerUser)
 
 router.route("/login").post(loginUser)
-router.route("/updateAvatar").post(updateUserAvatar)
 
 //secured routes
 router.route("/logout").post(verifyJWT, logOutUser)
