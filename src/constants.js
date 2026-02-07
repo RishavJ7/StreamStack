@@ -1,1 +1,1 @@
-export const DB_NAME = "twittyTube"
+export const DB_NAME = "StreamStack"
