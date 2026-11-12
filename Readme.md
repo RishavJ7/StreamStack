@@ -284,8 +284,32 @@ StreamStack/
 | `REFRESH_TOKEN_SECRET` | Yes | Secret key for signing refresh JWTs |
 | `REFRESH_TOKEN_EXPIRY` | Yes | Refresh token TTL (e.g. `10d`) |
 | `CLOUDINARY_CLOUD_NAME` | Yes | Your Cloudinary cloud name |
-| `CLOUDINARY_API_KEY` | Yes | Cloudinary API key |
-| `CLOUDINARY_SECRET_KEY` | Yes | Cloudinary API secret |
+| `CLOUDINARY_CLOUD_API_KEY` (or `CLOUDINARY_API_KEY`) | Yes | Cloudinary API key |
+| `CLOUDINARY_CLOUD_API_SECRET` (or `CLOUDINARY_SECRET_KEY`) | Yes | Cloudinary API secret |
+
+---
+
+## 🌐 Deploy to Render
+
+StreamStack is pre-configured for instant deployment on [Render](https://render.com).
+
+### Option 1: Render Blueprint (Recommended)
+1. Fork or push this repository to GitHub.
+2. In the Render Dashboard, go to **Blueprints** -> **New Blueprint Instance**.
+3. Select this repository. Render will automatically read `render.yaml` and configure the web service and build/start commands.
+4. Fill in the required environment variables (`MONGODB_URI`, `CLOUDINARY_*`).
+5. Click **Apply**.
+
+### Option 2: Manual Web Service
+1. In Render, select **New +** -> **Web Service**.
+2. Connect your repository.
+3. Configure settings:
+   - **Environment**: `Node`
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start`
+   - **Health Check Path**: `/health`
+4. Add all environment variables listed in `.env.sample`.
+5. Click **Deploy Web Service**.
 
 ---
 
