@@ -25,14 +25,12 @@ const getAllVideos = asyncHandler(async (req, res) => {
     }
 
     if(userId){
-        filter.uploder = userId
+        filter.uploader = userId
     }
 
     const sortOptions = {};
-
-    if(sortBy){
-        sortOptions[sortBy] = sortType === "asc"? 1: -1
-    }
+    const sortField = sortBy || "createdAt";
+    sortOptions[sortField] = sortType === "asc" ? 1 : -1;
 
     console.log("sortOptions: ",sortOptions);
 
@@ -88,7 +86,7 @@ const getAllVideos = asyncHandler(async (req, res) => {
                             uploader: 1,
                             duration: 1,
                             views: 1,
-                            isPublised: 1,
+                            isPublished: 1,
                             comments: 1,
                             likesCount: 1,
                             commentCount: 1,
@@ -98,9 +96,7 @@ const getAllVideos = asyncHandler(async (req, res) => {
                     },
                 ]);
         
-                if (videos.length === 0) {
-                    throw new ApiError(404, "Videos not found");
-                }
+                // Empty check removed: return 200 with empty list when no videos yet
         
                 const totalVideos = await Video.countDocuments(filter);
                 const totalPages = Math.ceil(totalVideos / limitNum);

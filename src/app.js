@@ -43,4 +43,16 @@ app.use("/api/v1/subscriptions", subsriptionRouter);
 app.use("/api/v1/likes", likeRouter);
 app.use("/api/v1/comments", commentRouter);
 
+// Global Error Handler Middleware
+app.use((err, req, res, next) => {
+    const statusCode = err.statusCode || 500;
+    return res.status(statusCode).json({
+        statusCode,
+        data: null,
+        message: err.message || "Internal Server Error",
+        success: false,
+        errors: err.errors || []
+    });
+});
+
 export { app };

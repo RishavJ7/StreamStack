@@ -3,220 +3,197 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StreamStack API — Live</title>
-  <style>
-    :root {
-      --bg: #0f1117;
-      --card-bg: #1a1d27;
-      --border: #2a2e3d;
-      --text: #f0f2f5;
-      --muted: #8b949e;
-      --accent: #6366f1;
-      --accent-hover: #4f46e5;
-      --success: #10b981;
-      --tag: #252936;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      padding: 40px 20px;
-      display: flex;
-      justify-content: center;
-    }
-    .container {
-      max-width: 800px;
-      width: 100%;
-    }
-    .header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      background: rgba(16, 185, 129, 0.15);
-      color: var(--success);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      margin-bottom: 16px;
-    }
-    .pulse {
-      width: 8px;
-      height: 8px;
-      background: var(--success);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--success);
-    }
-    h1 {
-      font-size: 2.4rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 8px;
-      background: linear-gradient(135deg, #fff 40%, var(--muted) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    p.subtitle {
-      color: var(--muted);
-      font-size: 1.1rem;
-    }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 24px;
-    }
-    .card h2 {
-      font-size: 1.25rem;
-      margin-bottom: 16px;
-      color: #fff;
-    }
-    .endpoint-grid {
-      display: grid;
-      gap: 12px;
-    }
-    .endpoint-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 16px;
-      background: var(--tag);
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.2s, transform 0.15s;
-    }
-    .endpoint-row:hover {
-      border-color: var(--accent);
-      transform: translateY(-1px);
-    }
-    .method {
-      font-weight: 700;
-      font-size: 0.75rem;
-      padding: 3px 8px;
-      border-radius: 4px;
-      background: var(--accent);
-      color: #fff;
-      margin-right: 12px;
-    }
-    .path {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.95rem;
-      color: #e2e8f0;
-      flex-grow: 1;
-    }
-    .desc {
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 8px;
-      background: var(--accent);
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .btn:hover { background: var(--accent-hover); }
-    pre {
-      background: #11131a;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 14px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.85rem;
-      color: #cbd5e1;
-      overflow-x: auto;
-      margin-top: 12px;
-    }
-    footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.85rem;
-      margin-top: 40px;
-    }
-  </style>
+  <title>StreamStack — Video & Tweet Platform</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <div class="badge"><div class="pulse"></div> API System Online</div>
-      <h1>StreamStack Backend</h1>
-      <p class="subtitle">Production-grade Video Streaming & Tweet REST API Engine</p>
+
+  <!-- ==================== HEADER ==================== -->
+  <header>
+    <div class="logo-container" onclick="switchTab('home')">
+      <div class="logo-icon">&#9654;</div>
+      <div class="logo-text">Stream<span>Stack</span></div>
     </div>
 
-    <div class="card">
-      <h2>🚀 Service Overview</h2>
-      <p style="color: var(--muted); margin-bottom: 12px;">
-        The StreamStack backend is successfully deployed on Render and connected to your cloud resources.
-      </p>
-      <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px;">
-        <div style="flex: 1; min-width: 200px; padding: 14px; background: var(--tag); border-radius: 8px; border: 1px solid var(--border);">
-          <div style="font-size: 0.8rem; color: var(--muted);">DATABASE</div>
-          <div style="font-size: 1rem; font-weight: 700; color: #10b981; margin-top: 4px;">MongoDB Atlas Connected</div>
-        </div>
-        <div style="flex: 1; min-width: 200px; padding: 14px; background: var(--tag); border-radius: 8px; border: 1px solid var(--border);">
-          <div style="font-size: 0.8rem; color: var(--muted);">MEDIA PIPELINE</div>
-          <div style="font-size: 1rem; font-weight: 700; color: #6366f1; margin-top: 4px;">Cloudinary Storage</div>
-        </div>
+    <div class="search-bar-container">
+      <div class="search-input-wrapper">
+        <input type="text" id="search-input" class="search-input" placeholder="Search videos by title or topic..." />
+        <button class="search-btn" onclick="loadVideos(document.getElementById('search-input').value)">
+          <svg style="width: 18px; height: 18px; fill: currentColor;" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        </button>
       </div>
     </div>
 
-    <div class="card">
-      <h2>📡 API Endpoints</h2>
-      <div class="endpoint-grid">
-        <a class="endpoint-row" href="/health" target="_blank">
-          <div><span class="method">GET</span><span class="path">/health</span></div>
-          <div class="desc">Health check & uptime monitor &nearr;</div>
-        </a>
-        <div class="endpoint-row">
-          <div><span class="method">POST</span><span class="path">/api/v1/users/register</span></div>
-          <div class="desc">Register user (avatar + cover)</div>
-        </div>
-        <div class="endpoint-row">
-          <div><span class="method">POST</span><span class="path">/api/v1/users/login</span></div>
-          <div class="desc">User login (JWT cookies)</div>
-        </div>
-        <div class="endpoint-row">
-          <div><span class="method">GET</span><span class="path">/api/v1/videos</span></div>
-          <div class="desc">Paginated video feed</div>
-        </div>
-        <div class="endpoint-row">
-          <div><span class="method">POST</span><span class="path">/api/v1/videos</span></div>
-          <div class="desc">Upload video to Cloudinary</div>
-        </div>
-        <div class="endpoint-row">
-          <div><span class="method">GET</span><span class="path">/api/v1/tweets</span></div>
-          <div class="desc">Fetch user tweets</div>
-        </div>
+    <div class="header-actions">
+      <button class="btn btn-secondary" onclick="openUploadModal()">
+        <span>+ Upload</span>
+      </button>
+      <div id="header-auth-section">
+        <button class="btn btn-blue" onclick="openModal('auth-modal')">Sign In</button>
       </div>
     </div>
+  </header>
 
-    <div class="card">
-      <h2>🔌 Connect Your Frontend</h2>
-      <p style="color: var(--muted); font-size: 0.9rem;">
-        Configure your frontend client (React, Next.js, Vue, mobile app) with this base URL:
-      </p>
-      <pre>const API_BASE_URL = "https://streamstack-backend.onrender.com/api/v1";</pre>
-    </div>
+  <!-- ==================== MAIN WRAPPER ==================== -->
+  <div class="main-wrapper">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a class="nav-item active" data-tab="home" onclick="switchTab('home')">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span>Home</span>
+      </a>
+      <a class="nav-item" data-tab="tweets" onclick="switchTab('tweets')">
+        <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+        <span>Tweets</span>
+      </a>
+      <a class="nav-item" data-tab="liked" onclick="switchTab('liked')">
+        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <span>Liked Videos</span>
+      </a>
+      <a class="nav-item" data-tab="history" onclick="switchTab('history')">
+        <svg viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+        <span>History</span>
+      </a>
+    </aside>
 
-    <footer>
-      StreamStack &copy; 2026 &bull; Powered by Node.js, Express, MongoDB & Render
-    </footer>
+    <!-- Content Area -->
+    <main class="content-area">
+      <!-- 1. Home / Video Feed View -->
+      <section id="home-view">
+        <div id="video-grid" class="video-grid">
+          <!-- Populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- 2. Watch / Video Player View -->
+      <section id="watch-view" style="display: none;">
+        <!-- Populated by JavaScript -->
+      </section>
+
+      <!-- 3. Tweets View -->
+      <section id="tweets-view" style="display: none;">
+        <div class="tweets-container">
+          <div class="tweet-compose-box">
+            <textarea id="tweet-compose-text" class="tweet-textarea" placeholder="What's happening in your stream?"></textarea>
+            <div class="tweet-compose-footer">
+              <button class="btn btn-blue" onclick="postTweet()">Post Tweet</button>
+            </div>
+          </div>
+          <div id="tweets-feed">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Liked Videos View -->
+      <section id="liked-view" style="display: none;">
+        <h2 style="margin-bottom: 20px; font-size: 1.4rem;">Liked Videos</h2>
+        <div id="liked-list"></div>
+      </section>
+
+      <!-- 5. Watch History View -->
+      <section id="history-view" style="display: none;">
+        <h2 style="margin-bottom: 20px; font-size: 1.4rem;">Watch History</h2>
+        <div id="history-list"></div>
+      </section>
+    </main>
   </div>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- Auth Modal (Login / Register) -->
+  <div id="auth-modal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">Account Access</div>
+        <button class="modal-close-btn" onclick="closeModal('auth-modal')">&times;</button>
+      </div>
+
+      <div class="modal-tabs">
+        <div id="auth-tab-login" class="modal-tab active" onclick="switchAuthTab('login')">Sign In</div>
+        <div id="auth-tab-register" class="modal-tab" onclick="switchAuthTab('register')">Create Account</div>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form" onsubmit="event.preventDefault(); login(document.getElementById('login-username').value, document.getElementById('login-password').value);">
+        <div class="form-group">
+          <label class="form-label">Username or Email</label>
+          <input type="text" id="login-username" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="login-password" class="form-input" required />
+        </div>
+        <button type="submit" class="btn btn-blue" style="width: 100%; margin-top: 8px;">Sign In</button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="register-form" style="display: none;" onsubmit="event.preventDefault(); register(new FormData(this));">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" name="fullName" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Username</label>
+          <input type="text" name="username" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" name="email" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" name="password" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Avatar Image</label>
+          <input type="file" name="avatar" class="form-input" accept="image/*" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Cover Image (Optional)</label>
+          <input type="file" name="coverImage" class="form-input" accept="image/*" />
+        </div>
+        <button type="submit" class="btn btn-blue" style="width: 100%; margin-top: 8px;">Register</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Upload Video Modal -->
+  <div id="upload-modal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">Upload Video</div>
+        <button class="modal-close-btn" onclick="closeModal('upload-modal')">&times;</button>
+      </div>
+
+      <form id="upload-video-form" onsubmit="handleVideoUpload(event)">
+        <div class="form-group">
+          <label class="form-label">Video Title</label>
+          <input type="text" name="title" class="form-input" placeholder="e.g. Building an AI Assistant with Node.js" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Description</label>
+          <textarea name="description" class="form-input" style="min-height: 80px; resize: vertical;" placeholder="Tell viewers about your video..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Video File (MP4, WebM)</label>
+          <input type="file" name="videoFile" class="form-input" accept="video/*" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Thumbnail Image (JPG, PNG)</label>
+          <input type="file" name="thumbnail" class="form-input" accept="image/*" required />
+        </div>
+        <button type="submit" id="upload-submit-btn" class="btn btn-blue" style="width: 100%; margin-top: 12px;">Publish Video</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="/app.js"></script>
 </body>
 </html>
