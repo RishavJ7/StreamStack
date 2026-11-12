@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreamStack API — Live</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --card-bg: #1a1d27;
+      --border: #2a2e3d;
+      --text: #f0f2f5;
+      --muted: #8b949e;
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --success: #10b981;
+      --tag: #252936;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      max-width: 800px;
+      width: 100%;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--success);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      margin-bottom: 16px;
+    }
+    .pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--success);
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #fff 40%, var(--muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+    .endpoint-grid {
+      display: grid;
+      gap: 12px;
+    }
+    .endpoint-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: var(--tag);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .endpoint-row:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .method {
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--accent);
+      color: #fff;
+      margin-right: 12px;
+    }
+    .path {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      flex-grow: 1;
+    }
+    .desc {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: var(--accent-hover); }
+    pre {
+      background: #11131a;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      overflow-x: auto;
+      margin-top: 12px;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="badge"><div class="pulse"></div> API System Online</div>
+      <h1>StreamStack Backend</h1>
+      <p class="subtitle">Production-grade Video Streaming & Tweet REST API Engine</p>
+    </div>
+
+    <div class="card">
+      <h2>🚀 Service Overview</h2>
+      <p style="color: var(--muted); margin-bottom: 12px;">
+        The StreamStack backend is successfully deployed on Render and connected to your cloud resources.
+      </p>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px;">
+        <div style="flex: 1; min-width: 200px; padding: 14px; background: var(--tag); border-radius: 8px; border: 1px solid var(--border);">
+          <div style="font-size: 0.8rem; color: var(--muted);">DATABASE</div>
+          <div style="font-size: 1rem; font-weight: 700; color: #10b981; margin-top: 4px;">MongoDB Atlas Connected</div>
+        </div>
+        <div style="flex: 1; min-width: 200px; padding: 14px; background: var(--tag); border-radius: 8px; border: 1px solid var(--border);">
+          <div style="font-size: 0.8rem; color: var(--muted);">MEDIA PIPELINE</div>
+          <div style="font-size: 1rem; font-weight: 700; color: #6366f1; margin-top: 4px;">Cloudinary Storage</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📡 API Endpoints</h2>
+      <div class="endpoint-grid">
+        <a class="endpoint-row" href="/health" target="_blank">
+          <div><span class="method">GET</span><span class="path">/health</span></div>
+          <div class="desc">Health check & uptime monitor &nearr;</div>
+        </a>
+        <div class="endpoint-row">
+          <div><span class="method">POST</span><span class="path">/api/v1/users/register</span></div>
+          <div class="desc">Register user (avatar + cover)</div>
+        </div>
+        <div class="endpoint-row">
+          <div><span class="method">POST</span><span class="path">/api/v1/users/login</span></div>
+          <div class="desc">User login (JWT cookies)</div>
+        </div>
+        <div class="endpoint-row">
+          <div><span class="method">GET</span><span class="path">/api/v1/videos</span></div>
+          <div class="desc">Paginated video feed</div>
+        </div>
+        <div class="endpoint-row">
+          <div><span class="method">POST</span><span class="path">/api/v1/videos</span></div>
+          <div class="desc">Upload video to Cloudinary</div>
+        </div>
+        <div class="endpoint-row">
+          <div><span class="method">GET</span><span class="path">/api/v1/tweets</span></div>
+          <div class="desc">Fetch user tweets</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🔌 Connect Your Frontend</h2>
+      <p style="color: var(--muted); font-size: 0.9rem;">
+        Configure your frontend client (React, Next.js, Vue, mobile app) with this base URL:
+      </p>
+      <pre>const API_BASE_URL = "https://streamstack-backend.onrender.com/api/v1";</pre>
+    </div>
+
+    <footer>
+      StreamStack &copy; 2026 &bull; Powered by Node.js, Express, MongoDB & Render
+    </footer>
+  </div>
+</body>
+</html>

@@ -16,13 +16,13 @@ app.use(express.static("public"));
 
 app.use(cookieParser());
 
-// Health check and root route (useful for Render deployment & monitoring)
-app.get("/", (req, res) => {
-    res.status(200).json({ status: "ok", message: "StreamStack API is running" });
-});
-
+// Health check route (used by Render deployment & uptime monitoring)
 app.get("/health", (req, res) => {
     res.status(200).json({ status: "healthy", timestamp: new Date().toISOString() });
+});
+
+app.get("/api", (req, res) => {
+    res.status(200).json({ status: "ok", message: "StreamStack API is running" });
 });
 
 // routes import
